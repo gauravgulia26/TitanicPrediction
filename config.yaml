@@ -1,0 +1,6 @@
+data:
+  data_url: "https://github.com/datasciencedojo/datasets/blob/master/titanic.csv"
+
+logger:
+  file_name: "logs.log"
+  file_path: "logs/"
