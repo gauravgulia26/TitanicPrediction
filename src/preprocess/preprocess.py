@@ -14,6 +14,7 @@ from typing import List
 import pandas as pd
 import numpy as np
 import json
+import os
 
 
 class PreprocessData:
@@ -29,6 +30,11 @@ class PreprocessData:
 
         num = data.select_dtypes(exclude=["object", "bool", "category"])
         cat = data.select_dtypes(include=["object", "bool", "category"])
+        data_name = 'output.csv'
+        data_dir = 'data/raw'
+        data_path = os.path.join(os.getcwd(),data_dir,data_name)
+        data.to_csv(data_path)
+        logger.info(f'Data Saved to {data_dir} as {data_name}')
 
         return data, num, cat
 

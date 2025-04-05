@@ -6,7 +6,7 @@ from src.YAML import LoadYaml
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(
-    level="INFO",
+    level="DEBUG",
     logger=logger,
 )
 
