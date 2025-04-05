@@ -24,6 +24,8 @@ class MakePipeline(BaseModel):
             remainder="passthrough",
         )
 
+        imputer_trf.set_output(transform='pandas')
+
         return imputer_trf
 
     def CreatePipe(self):

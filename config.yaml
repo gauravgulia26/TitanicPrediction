@@ -4,3 +4,6 @@ data:
 logger:
   file_name: "logs.log"
   file_path: "logs/"
+
+pydantic:
+  arbitrary_types_allowed: True
