@@ -1,23 +1,24 @@
 # This file is used to define the project wide variables for reuse.
 
-import sys,os
+import sys, os
 from datetime import datetime
 
 
 def get_current_time_stamp():
-    return f'{datetime.now().strftime('%d:%m:%Y-%H:%M:%S')}'
+    return f"{datetime.now().strftime('%d:%m:%Y-%H:%M:%S')}"
+
 
 TIMESTAMP = get_current_time_stamp()
 
-#* This will fetch the data from specified path and then Proceed With Data Ingestion Step
+# * This will fetch the data from specified path and then Proceed With Data Ingestion Step
 
 ROOT_DIR = os.getcwd()
-DATA_NAME = 'output.csv'
-DATA_DIR_KEY = 'data/raw'
+DATA_NAME = "output.csv"
+DATA_DIR_KEY = "data/raw"
 
 # Next step is to save the data into artifact folder
 
-#* Folder Structure: 
+# * Folder Structure:
 # ----------------------------------------------------------------------
 
 # * Artifact Folder is used to store the data after fetching the data from remote/local and save to respecting directories.
@@ -28,31 +29,40 @@ DATA_DIR_KEY = 'data/raw'
 
 # ----------------------------------------------------------------------
 
-# * Data Ingestion -> The steps are to download the data and then split it into 
+# * Data Ingestion -> The steps are to download the data and then split it into
 # * Training and Testing Set
 
 # ----------------------------------------------------------------------
 
 # * Creating Directory Names:
 
-ARTIFACT_DIR_KEY = 'Artifact'
-DATA_INGESTION_DIR_KEY = 'DataIngestion'
-DATA_INGESTION_RAW_DIR_KEY = 'RawData'
-DATA_INGESTION_INGESTED_DIR_KEY = 'IngestedData'
-DATA_INGESTION_INGESTED_TRAIN_DIR_KEY = 'Train'
-DATA_INGESTION_INGESTED_TEST_DIR_KEY = 'Test'
+ARTIFACT_DIR_KEY = "Artifact"
+DATA_INGESTION_DIR_KEY = "DataIngestion"
+DATA_INGESTION_RAW_DIR_KEY = "RawData"
+DATA_INGESTION_INGESTED_DIR_KEY = "IngestedData"
+DATA_INGESTION_INGESTED_TRAIN_DIR_KEY = "Train"
+DATA_INGESTION_INGESTED_TEST_DIR_KEY = "Test"
 
 # * Creating File Names:
 
-DATA_INGESTION_RAW_FILE_NAME = 'raw.csv'
-DATA_INGESTION_INGESTED_TRAIN_FILE_NAME = 'train.csv'
-DATA_INGESTION_INGESTED_TEST_FILE_NAME = 'test.csv'
+DATA_INGESTION_RAW_FILE_NAME = "raw.csv"
+DATA_INGESTION_INGESTED_TRAIN_FILE_NAME = "train.csv"
+DATA_INGESTION_INGESTED_TEST_FILE_NAME = "test.csv"
 
 # ---------------------------------------------------
 
 
+# * Creating Variables needed in Data Transformation Step
 
+PRE_DATA_TRANSFORMATION_DIR = "DataTransformation"
+DATA_PROCESSED_DIR = "Processed"
+DATA_PROCESSED_OBJ = "Processed.pkl"
+DATA_TRANSFORM_DIR = "Transformation"
+TRANSFORMED_DATA_TRAIN_DIR = "Train"
+TRANSFORMED_DATA_TEST_DIR = "Test"
+TRANSFORMED_DATA_TRAIN = "Train.csv"
+TRANSFORMED_DATA_TEST = "Test.csv"
 
-
-
-
+# * Folder Structure -> Artifact/DataTransformation/Processed/Processed.pkl
+# * Folder Structure -> Artifact/Transformation/Train/Train.csv
+# * Folder Structure -> Artifact/Transformation/Test/Test.csv

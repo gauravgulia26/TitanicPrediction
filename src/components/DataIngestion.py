@@ -62,20 +62,16 @@ class DataIngestion(BaseModel):
         except Exception as e:
             err = CustomException(error_message=e)
             err.log_exception()
-
-        return df
+        else:
+            return df
 
     def InitiateIngestion(self):
         try:
             df = self.__InitiateIngestion()
-            X = df.drop(columns="Survived", axis=1)
-            y = df["Survived"]
             logger.debug(
                 "Successfully Splitted into X,Y\n Procedding to Split into Training and Testing Set"
             )
-            X_train, X_test, y_train, y_test = train_test_split(
-                X, y, test_size=0.33, random_state=42
-            )
+            train_set, test_set = train_test_split(df, test_size=0.33, random_state=42)
             logger.info("Successfully Splitted into Training and Testing Set")
 
         except Exception as e:
@@ -86,13 +82,13 @@ class DataIngestion(BaseModel):
                 os.makedirs(self.data_ingestion_config.train_data_path, exist_ok=True)
                 os.makedirs(self.data_ingestion_config.test_data_path, exist_ok=True)
                 logger.info("Successfully Created the Testing and Training Directory")
-                pd.concat((X_train,y_train),axis=1).to_csv(
+                train_set.to_csv(
                     os.path.join(
                         self.data_ingestion_config.train_data_path,
                         DATA_INGESTION_INGESTED_TRAIN_FILE_NAME,
                     )
                 )
-                pd.concat((X_test,y_test),axis=1).to_csv(
+                test_set.to_csv(
                     os.path.join(
                         self.data_ingestion_config.test_data_path,
                         DATA_INGESTION_INGESTED_TEST_FILE_NAME,

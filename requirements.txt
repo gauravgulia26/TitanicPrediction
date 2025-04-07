@@ -18,3 +18,4 @@ typer
 -e .
 pyyaml
 scipy
+rich
